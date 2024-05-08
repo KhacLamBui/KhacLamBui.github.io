@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
@@ -12,21 +12,21 @@
     <title>Testing the implementation :: Start with Amazon VPC and AWS VPN Site-to-Site.</title>
 
     
-    <link href="../../css/nucleus.css?1715160834" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1715160834" rel="stylesheet">
-    <link href="../../css/hybrid.css?1715160834" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1715160834" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1715160834" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1715160834" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1715160834" rel="stylesheet">
-    <link href="../../css/theme.css?1715160834" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1715160834" rel="stylesheet">
+    <link href="../../css/nucleus.css?1715163001" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1715163001" rel="stylesheet">
+    <link href="../../css/hybrid.css?1715163001" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1715163001" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1715163001" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1715163001" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1715163001" rel="stylesheet">
+    <link href="../../css/theme.css?1715163001" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1715163001" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1715160834" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1715163001" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1715160834"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1715163001"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1715160834"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1715160834"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1715163001"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1715163001"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/";
+        var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1715160834"></script>
+<script type="text/javascript" src="../../js/search.js?1715163001"></script>
 
     
   </div>
@@ -1617,7 +1617,7 @@
                   
                     
                     
-                      <option id="en" value="/9-intrumentingecs/9.4-testimplement/" selected>English</option>
+                      <option id="en" value="//localhost:1313/9-intrumentingecs/9.4-testimplement/" selected>English</option>
                     
                   
               
@@ -1631,7 +1631,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/9-intrumentingecs/9.4-testimplement/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/9-intrumentingecs/9.4-testimplement/">Tiếng Việt</option>
                     
                   
               
@@ -1766,50 +1766,54 @@
 
 	<h4 id="testing-the-implementation">Testing the implementation</h4>
 <ol>
-<li>Switch back to the <strong>productsservice</strong> project. Package the project into a JAR using Gradle.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/010.png/?featherlight=false&width=60pc"></p>
-<ol start="2">
-<li>Open the Dockerfile and create an image tag named <strong>productsservice:1.3.0</strong>.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/02.png/?featherlight=false&width=60pc"></p>
-<ol start="3">
-<li>Once the Docker image build is complete, push it to the ECR Repository with a remote tag of <strong>1.3.0</strong>.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/03.png/?featherlight=false&width=60pc"></p>
-<ol start="4">
-<li>Return to the <strong>FCJ2024_CDK</strong> project and update the image tag in <strong>fargateTaskDefinition.addContainer</strong> to <strong>1.3.0</strong>.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/04.png/?featherlight=false&width=60pc"></p>
-<ol start="5">
-<li>Deploy the service using the following command:</li>
+<li>
+<p>Switch back to the <strong>productsservice</strong> project. Package the project into a JAR using Gradle.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/71.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Open the Dockerfile and create an image tag named <strong>productsservice:1.3.0</strong>.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/72.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Once the Docker image build is complete, push it to the ECR Repository with a remote tag of <strong>1.3.0</strong>.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/73.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Return to the <strong>FCJ2024_CDK</strong> project and update the image tag in <strong>fargateTaskDefinition.addContainer</strong> to <strong>1.3.0</strong>.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/74.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Deploy the service using the following command:</p>
+</li>
 </ol>
 <pre tabindex="0"><code>cdk deploy --all --require-approval never
-</code></pre><p><img alt="Architect" src="../../images/9/implement/05.png/?featherlight=false&width=60pc"></p>
+</code></pre><p><img alt="Architect" src="../../images/8/createRepositories/75.png?featherlight=false&width=60pc"></p>
 <ol start="6">
-<li>After completing the deployment, access the <strong>ECS</strong> interface and select <strong>Task</strong>. Then choose any task from the running tasks.</li>
+<li>
+<p>After completing the deployment, access the <strong>ECS</strong> interface and select <strong>Task</strong>. Then choose any task from the running tasks.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/76.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>In the selected <strong>task</strong> interface, you can see a sidecar container named <strong>XRayProductsService</strong> running alongside the <strong>productsService</strong> container.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/77.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Next, we will test the API in Postman to measure the AWS ECS service using AWS X-Ray.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/78.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Access the <strong>CloudWatch</strong> interface and select <strong>Trace Map</strong> to view the request path.</p>
+<p><img alt="Architect" src="../../images/8/createRepositories/79.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Finally, to view ECS measurement information, select the ECS icon on the <strong>trace map</strong>.</p>
+</li>
 </ol>
-<p><img alt="Architect" src="../../images/9/implement/06.png/?featherlight=false&width=60pc"></p>
-<ol start="7">
-<li>In the selected <strong>task</strong> interface, you can see a sidecar container named <strong>XRayProductsService</strong> running alongside the <strong>productsService</strong> container.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/07.png/?featherlight=false&width=60pc"></p>
-<ol start="8">
-<li>Next, we will test the API in Postman to measure the AWS ECS service using AWS X-Ray.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/08.png/?featherlight=false&width=60pc"></p>
-<ol start="9">
-<li>Access the <strong>CloudWatch</strong> interface and select <strong>Trace Map</strong> to view the request path.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/09.png/?featherlight=false&width=60pc"></p>
-<ol start="10">
-<li>Finally, to view ECS measurement information, select the ECS icon on the <strong>trace map</strong>.</li>
-</ol>
-<p><img alt="Architect" src="../../images/9/implement/10.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/80.png?featherlight=false&width=60pc"></p>
 <ol start="11">
 <li>Similarly, with DynamoDB.</li>
 </ol>
-<p><img alt="Architect" src="../../images/9/implement/11.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/81.png?featherlight=false&width=60pc"></p>
 
 
 
@@ -2710,19 +2714,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1715160834"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1715160834"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1715160834"></script>
-    <script src="../../js/jquery.sticky.js?1715160834"></script>
-    <script src="../../js/featherlight.min.js?1715160834"></script>
-    <script src="../../js/highlight.pack.js?1715160834"></script>
+    <script src="../../js/clipboard.min.js?1715163001"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1715163001"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1715163001"></script>
+    <script src="../../js/jquery.sticky.js?1715163001"></script>
+    <script src="../../js/featherlight.min.js?1715163001"></script>
+    <script src="../../js/highlight.pack.js?1715163001"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1715160834"></script>
-    <script src="../../js/learn.js?1715160834"></script>
-    <script src="../../js/hugo-learn.js?1715160834"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1715163001"></script>
+    <script src="../../js/learn.js?1715163001"></script>
+    <script src="../../js/hugo-learn.js?1715163001"></script>
 
-    <link href="../../mermaid/mermaid.css?1715160834" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1715160834"></script>
+    <link href="../../mermaid/mermaid.css?1715163001" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1715163001"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
