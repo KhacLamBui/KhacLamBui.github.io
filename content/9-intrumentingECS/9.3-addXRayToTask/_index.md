@@ -10,7 +10,7 @@ pre: "<b>9.3</b>"
 
 1. Open the **FCJ2024_SDK** project and navigate to the **ProductsServiceStack.java** file.
 
-   ![Architect](/images/9/addsidecar/01.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/61.png?featherlight=false&width=60pc)
 
 2. Add environment variables for X-Ray as follows:
 
@@ -20,7 +20,7 @@ pre: "<b>9.3</b>"
    envVariables.put("AWS_XRAY_TRACING_NAME", "productsservice");
 ```
 
-![Architect](/images/9/addsidecar/02.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/62.png?featherlight=false&width=60pc)
 
 3. In the **fargateTaskDefinition.addContainer** section, add CPU as **348** and memory as **896**
 
@@ -30,7 +30,7 @@ pre: "<b>9.3</b>"
 
 ```
 
-![Architect](/images/9/addsidecar/03.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/63.png?featherlight=false&width=60pc)
 
 4. Next, add a sidecar container (X-Ray) to the ProductsServices task definition as follows:
 
@@ -54,7 +54,7 @@ fargateTaskDefinition.addContainer("xray", ContainerDefinitionOptions.builder()
                         .memoryLimitMiB(128)
                 .build());
 ```
-![Architect](/images/9/addsidecar/04.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/64.png?featherlight=false&width=60pc)
 
 5. Cấp quyền để cho phép các containers trong task có khả năng gửi dữ liệu đến AWS X-Ray mà không cần quyền đọc hoặc quản lý các tài nguyên X-Ray. Điều này giúp việc theo dõi và phân tích hiệu suất của ứng dụng được thực hiện một cách an toàn và hiệu quả.
    
@@ -62,4 +62,4 @@ fargateTaskDefinition.addContainer("xray", ContainerDefinitionOptions.builder()
 fargateTaskDefinition.getTaskRole().addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AWSXrayWriteOnlyAccess"));
 ```
 
-![Architect](/images/9/addsidecar/05.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/65.png?featherlight=false&width=60pc)

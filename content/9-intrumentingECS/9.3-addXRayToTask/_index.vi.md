@@ -10,7 +10,7 @@ pre : " <b> 9.3 </b> "
 
 1. Mở project **FCJ2024_SDK** và chọn file **ProductsServiceStack.java**
 
-![Architect](/images/9/addsidecar/01.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/61.png?featherlight=false&width=60pc)
 
 2. Thêm các biến mội trường cho X-Ray như sau
 
@@ -19,7 +19,7 @@ envVariables.put("AWS_XRAY_DAEMON_ADDRESS", "0.0.0.0:2000");
 envVariables.put("AWS_XRAY_CONTEXT_MISSING", "IGNORE_ERROR");
 envVariables.put("AWS_XRAY_TRACING_NAME", "productsservice");
 ```
-![Architect](/images/9/addsidecar/02.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/62.png?featherlight=false&width=60pc)
 
 3. Trong phần **fargateTaskDefinition.addContainer** thêm CPU là **348** và memory là **896**
 
@@ -28,7 +28,7 @@ envVariables.put("AWS_XRAY_TRACING_NAME", "productsservice");
 .memoryLimitMiB(896)
 ```
 
-![Architect](/images/9/addsidecar/03.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/63.png?featherlight=false&width=60pc)
 
 4. Tiếp theo, thêm một container phụ (sidecar) X-Ray vào ProductsServices task definition như sau
 
@@ -52,11 +52,11 @@ fargateTaskDefinition.addContainer("xray", ContainerDefinitionOptions.builder()
                         .memoryLimitMiB(128)
                 .build());
 ```
-![Architect](/images/9/addsidecar/04.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/64.png?featherlight=false&width=60pc)
 
 5. Cấp quyền để cho phép các containers trong task có khả năng gửi dữ liệu đến AWS X-Ray mà không cần quyền đọc hoặc quản lý các tài nguyên X-Ray. Điều này giúp việc theo dõi và phân tích hiệu suất của ứng dụng được thực hiện một cách an toàn và hiệu quả.
    
 ```java
 fargateTaskDefinition.getTaskRole().addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AWSXrayWriteOnlyAccess"));
 ```
-![Architect](/images/9/addsidecar/05.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/65.png?featherlight=false&width=60pc)

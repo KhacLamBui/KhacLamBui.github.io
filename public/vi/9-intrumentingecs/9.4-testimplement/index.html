@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
@@ -12,21 +12,21 @@
     <title>Testing the implementation :: Bắt đầu với Amazon VPC và AWS VPN Site to Site</title>
 
     
-    <link href="../../../css/nucleus.css?1715160834" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1715160834" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1715160834" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1715160834" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1715160834" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1715160834" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1715160834" rel="stylesheet">
-    <link href="../../../css/theme.css?1715160834" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1715160834" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1715163001" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1715163001" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1715163001" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1715163001" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1715163001" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1715163001" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1715163001" rel="stylesheet">
+    <link href="../../../css/theme.css?1715163001" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1715163001" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1715160834" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1715163001" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1715160834"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1715163001"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1715160834"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1715160834"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1715163001"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1715163001"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1715160834"></script>
+<script type="text/javascript" src="../../../js/search.js?1715163001"></script>
 
     
   </div>
@@ -1617,7 +1617,7 @@
                   
                     
                     
-                      <option id="en" value="/9-intrumentingecs/9.4-testimplement/">English</option>
+                      <option id="en" value="//localhost:1313/9-intrumentingecs/9.4-testimplement/">English</option>
                     
                   
               
@@ -1631,7 +1631,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/9-intrumentingecs/9.4-testimplement/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/9-intrumentingecs/9.4-testimplement/" selected>Tiếng Việt</option>
                     
                   
               
@@ -1766,50 +1766,54 @@
 
 	<h4 id="testing-the-implementation">Testing the implementation</h4>
 <ol>
-<li>Quay trở là <strong>productsservice</strong> project. Đóng gói project bằng jar trong Grade</li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/010.png/?featherlight=false&width=60pc"></p>
-<ol start="2">
-<li>Mở DockerFile và tạo image tag là <strong>productsservice:1.3.0</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/02.png/?featherlight=false&width=60pc"></p>
-<ol start="3">
-<li>Sau khi hoàn thành buid Docker Image. Push nó lên ECR Repository với Remote Tag là <strong>1.3.0</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/03.png/?featherlight=false&width=60pc"></p>
-<ol start="4">
-<li>Trở lại <strong>FCJ2024_CDK</strong> project thay đổi image tag của <strong>fargateTaskDefinition.addContainer</strong> là <strong>1.3.0</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/04.png/?featherlight=false&width=60pc"></p>
-<ol start="5">
-<li>Deploy service bằng dòng lệnh</li>
+<li>
+<p>Quay trở là <strong>productsservice</strong> project. Đóng gói project bằng jar trong Grade</p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/71.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Mở DockerFile và tạo image tag là <strong>productsservice:1.3.0</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/72.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Sau khi hoàn thành buid Docker Image. Push nó lên ECR Repository với Remote Tag là <strong>1.3.0</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/73.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Trở lại <strong>FCJ2024_CDK</strong> project thay đổi image tag của <strong>fargateTaskDefinition.addContainer</strong> là <strong>1.3.0</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/74.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Deploy service bằng dòng lệnh</p>
+</li>
 </ol>
 <pre tabindex="0"><code>cdk deploy --all --require-approval never
-</code></pre><p><img alt="Architect" src="../../../images/9/implement/05.png/?featherlight=false&width=60pc"></p>
+</code></pre><p><img alt="Architect" src="../../../images/8/createRepositories/75.png?featherlight=false&width=60pc"></p>
 <ol start="6">
-<li>Sau khi hoành thành deploy. Chúng ta truy cập vào giao diện <strong>ECS</strong> chọn <strong>Task</strong>. Sau đó chọn 1 task bất kỳ trong 2 task đang chạy.</li>
+<li>
+<p>Sau khi hoành thành deploy. Chúng ta truy cập vào giao diện <strong>ECS</strong> chọn <strong>Task</strong>. Sau đó chọn 1 task bất kỳ trong 2 task đang chạy.</p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/76.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Trong giao diện <strong>task</strong> vừa được chọn. Ta có thể thấy một container phụ (sidecar) tên <strong>XRayProductsService</strong> đang chạy cùng với <strong>productsService</strong> container</p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/77.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Tiếp theo chúng ta sẽ test API trên postman để kiểm tra Đo lường dịch vụ AWS ECS trên AWS X-ray</p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/78.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Truy cập vào giao diện <strong>CloudWatch</strong> chọn <strong>Trace Map</strong> để xem được đường đi của request</p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/79.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Cuối cùng để xem thông tin do lường của ECS chúng ta chọn biểu tượng ECS trên <strong>trace map</strong></p>
+</li>
 </ol>
-<p><img alt="Architect" src="../../../images/9/implement/06.png/?featherlight=false&width=60pc"></p>
-<ol start="7">
-<li>Trong giao diện <strong>task</strong> vừa được chọn. Ta có thể thấy một container phụ (sidecar) tên <strong>XRayProductsService</strong> đang chạy cùng với <strong>productsService</strong> container</li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/07.png/?featherlight=false&width=60pc"></p>
-<ol start="8">
-<li>Tiếp theo chúng ta sẽ test API trên postman để kiểm tra Đo lường dịch vụ AWS ECS trên AWS X-ray</li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/08.png/?featherlight=false&width=60pc"></p>
-<ol start="9">
-<li>Truy cập vào giao diện <strong>CloudWatch</strong> chọn <strong>Trace Map</strong> để xem được đường đi của request</li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/09.png/?featherlight=false&width=60pc"></p>
-<ol start="10">
-<li>Cuối cùng để xem thông tin do lường của ECS chúng ta chọn biểu tượng ECS trên <strong>trace map</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/implement/10.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/80.png?featherlight=false&width=60pc"></p>
 <ol start="11">
 <li>Tượng tự với DynamoDB</li>
 </ol>
-<p><img alt="Architect" src="../../../images/9/implement/11.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/81.png?featherlight=false&width=60pc"></p>
 <ol start="12">
 <li>Mở Postman tạo phương thức Post để tạo một product mới</li>
 </ol>
@@ -2713,19 +2717,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1715160834"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1715160834"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715160834"></script>
-    <script src="../../../js/jquery.sticky.js?1715160834"></script>
-    <script src="../../../js/featherlight.min.js?1715160834"></script>
-    <script src="../../../js/highlight.pack.js?1715160834"></script>
+    <script src="../../../js/clipboard.min.js?1715163001"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1715163001"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715163001"></script>
+    <script src="../../../js/jquery.sticky.js?1715163001"></script>
+    <script src="../../../js/featherlight.min.js?1715163001"></script>
+    <script src="../../../js/highlight.pack.js?1715163001"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1715160834"></script>
-    <script src="../../../js/learn.js?1715160834"></script>
-    <script src="../../../js/hugo-learn.js?1715160834"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1715163001"></script>
+    <script src="../../../js/learn.js?1715163001"></script>
+    <script src="../../../js/hugo-learn.js?1715163001"></script>
 
-    <link href="../../../mermaid/mermaid.css?1715160834" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1715160834"></script>
+    <link href="../../../mermaid/mermaid.css?1715163001" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1715163001"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.3">
@@ -12,21 +12,21 @@
     <title>Thêm X-Ray Sidecar vào ProductsServices Task Definition :: Bắt đầu với Amazon VPC và AWS VPN Site to Site</title>
 
     
-    <link href="../../../css/nucleus.css?1715160834" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1715160834" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1715160834" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1715160834" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1715160834" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1715160834" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1715160834" rel="stylesheet">
-    <link href="../../../css/theme.css?1715160834" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1715160834" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1715163001" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1715163001" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1715163001" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1715163001" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1715163001" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1715163001" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1715163001" rel="stylesheet">
+    <link href="../../../css/theme.css?1715163001" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1715163001" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1715160834" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1715163001" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1715160834"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1715163001"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1715160834"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1715160834"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1715163001"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1715163001"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1715160834"></script>
+<script type="text/javascript" src="../../../js/search.js?1715163001"></script>
 
     
   </div>
@@ -1617,7 +1617,7 @@
                   
                     
                     
-                      <option id="en" value="/9-intrumentingecs/9.3-addxraytotask/">English</option>
+                      <option id="en" value="//localhost:1313/9-intrumentingecs/9.3-addxraytotask/">English</option>
                     
                   
               
@@ -1631,7 +1631,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/9-intrumentingecs/9.3-addxraytotask/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/9-intrumentingecs/9.3-addxraytotask/" selected>Tiếng Việt</option>
                     
                   
               
@@ -1766,22 +1766,24 @@
 
 	<h4 id="thêm-một-container-phụ-sidecar-x-ray-vào-productsservices-task-definition">Thêm một container phụ (sidecar) X-Ray vào ProductsServices task definition</h4>
 <ol>
-<li>Mở project <strong>FCJ2024_SDK</strong> và chọn file <strong>ProductsServiceStack.java</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/addsidecar/01.png/?featherlight=false&width=60pc"></p>
-<ol start="2">
-<li>Thêm các biến mội trường cho X-Ray như sau</li>
+<li>
+<p>Mở project <strong>FCJ2024_SDK</strong> và chọn file <strong>ProductsServiceStack.java</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/61.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Thêm các biến mội trường cho X-Ray như sau</p>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>envVariables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;AWS_XRAY_DAEMON_ADDRESS&#34;</span>, <span style="color:#e6db74">&#34;0.0.0.0:2000&#34;</span>);
 </span></span><span style="display:flex;"><span>envVariables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;AWS_XRAY_CONTEXT_MISSING&#34;</span>, <span style="color:#e6db74">&#34;IGNORE_ERROR&#34;</span>);
 </span></span><span style="display:flex;"><span>envVariables.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;AWS_XRAY_TRACING_NAME&#34;</span>, <span style="color:#e6db74">&#34;productsservice&#34;</span>);
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/addsidecar/02.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/62.png?featherlight=false&width=60pc"></p>
 <ol start="3">
 <li>Trong phần <strong>fargateTaskDefinition.addContainer</strong> thêm CPU là <strong>348</strong> và memory là <strong>896</strong></li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>.<span style="color:#a6e22e">cpu</span>(384)
 </span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">memoryLimitMiB</span>(896)
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/addsidecar/03.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/63.png?featherlight=false&width=60pc"></p>
 <ol start="4">
 <li>Tiếp theo, thêm một container phụ (sidecar) X-Ray vào ProductsServices task definition như sau</li>
 </ol>
@@ -1803,12 +1805,12 @@
 </span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">cpu</span>(128)
 </span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">memoryLimitMiB</span>(128)
 </span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">build</span>());
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/addsidecar/04.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/64.png?featherlight=false&width=60pc"></p>
 <ol start="5">
 <li>Cấp quyền để cho phép các containers trong task có khả năng gửi dữ liệu đến AWS X-Ray mà không cần quyền đọc hoặc quản lý các tài nguyên X-Ray. Điều này giúp việc theo dõi và phân tích hiệu suất của ứng dụng được thực hiện một cách an toàn và hiệu quả.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>fargateTaskDefinition.<span style="color:#a6e22e">getTaskRole</span>().<span style="color:#a6e22e">addManagedPolicy</span>(ManagedPolicy.<span style="color:#a6e22e">fromAwsManagedPolicyName</span>(<span style="color:#e6db74">&#34;AWSXrayWriteOnlyAccess&#34;</span>));
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/addsidecar/05.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/65.png?featherlight=false&width=60pc"></p>
 
 
 
@@ -2709,19 +2711,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1715160834"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1715160834"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715160834"></script>
-    <script src="../../../js/jquery.sticky.js?1715160834"></script>
-    <script src="../../../js/featherlight.min.js?1715160834"></script>
-    <script src="../../../js/highlight.pack.js?1715160834"></script>
+    <script src="../../../js/clipboard.min.js?1715163001"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1715163001"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715163001"></script>
+    <script src="../../../js/jquery.sticky.js?1715163001"></script>
+    <script src="../../../js/featherlight.min.js?1715163001"></script>
+    <script src="../../../js/highlight.pack.js?1715163001"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1715160834"></script>
-    <script src="../../../js/learn.js?1715160834"></script>
-    <script src="../../../js/hugo-learn.js?1715160834"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1715163001"></script>
+    <script src="../../../js/learn.js?1715163001"></script>
+    <script src="../../../js/hugo-learn.js?1715163001"></script>
 
-    <link href="../../../mermaid/mermaid.css?1715160834" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1715160834"></script>
+    <link href="../../../mermaid/mermaid.css?1715163001" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1715163001"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
