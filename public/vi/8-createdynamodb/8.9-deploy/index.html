@@ -12,21 +12,21 @@
     <title> Thực hiện deploy để kiểm thử :: Bắt đầu với Amazon VPC và AWS VPN Site to Site</title>
 
     
-    <link href="../../../css/nucleus.css?1715159378" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1715159378" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1715159378" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1715159378" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1715159378" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1715159378" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1715159378" rel="stylesheet">
-    <link href="../../../css/theme.css?1715159378" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1715159378" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1715160834" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1715160834" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1715160834" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1715160834" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1715160834" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1715160834" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1715160834" rel="stylesheet">
+    <link href="../../../css/theme.css?1715160834" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1715160834" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1715159378" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1715160834" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1715159378"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1715160834"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1715159378"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1715159378"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1715160834"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1715160834"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1715159378"></script>
+<script type="text/javascript" src="../../../js/search.js?1715160834"></script>
 
     
   </div>
@@ -1766,58 +1766,60 @@
 
 	<h4 id="thực-hiện-deploy-để-kiểm-thử">Thực hiện deploy để kiểm thử&quot;</h4>
 <ol>
-<li>Trong <strong>productsservice</strong> project chúng ta chọn biểu tượng <strong>Grade</strong> và chọn <strong>jar</strong> để đóng gói project</li>
+<li>
+<p>Trong <strong>productsservice</strong> project chúng ta chọn biểu tượng <strong>Grade</strong> và chọn <strong>jar</strong> để đóng gói project</p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/21.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Tiếp theo chúng ta cần tạo một image mới. Mở <strong>DockerFile</strong> chọn <strong>Edit dockerfile</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/22.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Trong giao diện <strong>Edit Dockerfile</strong>. Thay đổi image tag là 1.1.0 để tạo một Docker image mới sau chọn chọn <strong>Run</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/23.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Push image vừa tạo lên ECR Repository bằng cách mở <strong>AWS Toolkit</strong> chọn <strong>ERC</strong> và sau đó chọn <strong>productsservice</strong>. Cuối cùng click phải chọn <strong>Push to Repository</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/24.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Trong popup <strong>Push to ECR</strong> chọn Local image là <strong>productsservice:1.0.0</strong> và <strong>Remote Tag</strong> là <strong>1.1.0</strong> và chọn <strong>Push</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/25.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Kiểm tra image vừa push trên giao điện <strong>ECR</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/26.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Mở <strong>FCJ2024_CDK</strong> project. Sau đó mở file <strong>ProductsServiceStack</strong> và thay đổi tag trong phần <strong>fargateTaskDefinition.addContainer</strong> là <strong><code>1.1.0</code></strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/27.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Tiếp theo, sử dụng <strong><code>cdk deploy --all --require-approval never</code></strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/28.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Tiếp theo ta cần kiểm tra xem task definition mới của chúng ta có chạy hay không bằng cách mở giao điện <strong>ECS</strong> chọn <strong>CLuster</strong> sau đó chọn <strong>ECommerce</strong> và cuối cùng là chọn <strong>task</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/29.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Truy cập giao điện DymanoBD để kiểm tra product table đã được tạo hạy chưa</p>
+</li>
 </ol>
-<p><img alt="Architect" src="../../../images/8/implement/01.png/?featherlight=false&width=60pc"></p>
-<ol start="2">
-<li>Tiếp theo chúng ta cần tạo một image mới. Mở <strong>DockerFile</strong> chọn <strong>Edit dockerfile</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/02.png/?featherlight=false&width=60pc"></p>
-<ol start="3">
-<li>Trong giao diện <strong>Edit Dockerfile</strong>. Thay đổi image tag là 1.1.0 để tạo một Docker image mới sau chọn chọn <strong>Run</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/03.png/?featherlight=false&width=60pc"></p>
-<ol start="4">
-<li>Push image vừa tạo lên ECR Repository bằng cách mở <strong>AWS Toolkit</strong> chọn <strong>ERC</strong> và sau đó chọn <strong>productsservice</strong>. Cuối cùng click phải chọn <strong>Push to Repository</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/04.png/?featherlight=false&width=60pc"></p>
-<ol start="5">
-<li>Trong popup <strong>Push to ECR</strong> chọn Local image là <strong>productsservice:1.0.0</strong> và <strong>Remote Tag</strong> là <strong>1.1.0</strong> và chọn <strong>Push</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/05.png/?featherlight=false&width=60pc"></p>
-<ol start="6">
-<li>Kiểm tra image vừa push trên giao điện <strong>ECR</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/06.png/?featherlight=false&width=60pc"></p>
-<ol start="7">
-<li>Mở <strong>FCJ2024_CDK</strong> project. Sau đó mở file <strong>ProductsServiceStack</strong> và thay đổi tag trong phần <strong>fargateTaskDefinition.addContainer</strong> là <strong><code>1.1.0</code></strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/07.png/?featherlight=false&width=60pc"></p>
-<ol start="8">
-<li>Tiếp theo, sử dụng <strong><code>cdk deploy --all --require-approval never</code></strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/08.png/?featherlight=false&width=60pc"></p>
-<ol start="9">
-<li>Tiếp theo ta cần kiểm tra xem task definition mới của chúng ta có chạy hay không bằng cách mở giao điện <strong>ECS</strong> chọn <strong>CLuster</strong> sau đó chọn <strong>ECommerce</strong> và cuối cùng là chọn <strong>task</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/09.png/?featherlight=false&width=60pc"></p>
-<ol start="10">
-<li>Truy cập giao điện DymanoBD để kiểm tra product table đã được tạo hạy chưa</li>
-</ol>
-<p><img alt="Architect" src="../../../images/8/implement/10.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/30.png?featherlight=false&width=60pc"></p>
 <ol start="11">
-<li>
-<p>Truy cập giao diện API Gateway để xác minh các phương thức đã tạo.</p>
-<p><img alt="Architect" src="../../../images/8/implement/11.png/?featherlight=false&width=60pc"></p>
-</li>
-<li>
-<p>Trong giao diện <strong>API Gateway</strong>, hãy điều hướng đến <strong>Giai đoạn</strong> và sao chép <strong>Gọi URL</strong> để kiểm tra API trong Postman.</p>
-<p><img alt="Architect" src="../../../images/8/implement/12.png/?featherlight=false&width=60pc"></p>
-</li>
-<li>
-<p>Để thêm sản phẩm bằng phương thức POST, hãy mở Postman và tạo yêu cầu POST với điểm cuối <strong><code>Gọi URL/sản phẩm</code></strong>.</p>
-<p><img alt="Architect" src="../../../images/8/implement/13.png/?featherlight=false&width=60pc"></p>
-</li>
+<li>Truy cập giao diện API Gateway để xác minh các phương thức đã tạo.</li>
+</ol>
+<p><img alt="Architect" src="../../../images/8/createRepositories/31.png?featherlight=false&width=60pc"></p>
+<ol start="12">
+<li>Trong giao diện <strong>API Gateway</strong>, hãy điều hướng đến <strong>Giai đoạn</strong> và sao chép <strong>Gọi URL</strong> để kiểm tra API trong Postman.</li>
+</ol>
+<p><img alt="Architect" src="../../../images/8/createRepositories/32.png?featherlight=false&width=60pc"></p>
+<ol start="13">
+<li>Để thêm sản phẩm bằng phương thức POST, hãy mở Postman và tạo yêu cầu POST với điểm cuối <strong><code>Gọi URL/sản phẩm</code></strong>.</li>
+</ol>
+<p><img alt="Architect" src="../../../images/8/createRepositories/33.png?featherlight=false&width=60pc"></p>
+<ol start="14">
 <li>
 <p>Tiếp theo, truyền tham số bằng cách chọn <strong>Body</strong> và chọn <strong>raw</strong>. Sau đó nhập dữ liệu theo mẫu sau:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -1829,11 +1831,11 @@
 </span></span></code></pre></div><p>Press <strong>Send</strong> to submit the request. Similarly, you can add more product data.</p>
 </li>
 </ol>
-<p><img alt="Architect" src="../../../images/8/implement/14.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/34.png?featherlight=false&width=60pc"></p>
 <ol start="15">
 <li>Tiếp theo chúng ta sẽ lấy tất cả product đã tạo bằng phương thức GET với đường dẫn là  <strong><code>Invoke URL/product</code></strong></li>
 </ol>
-<p><img alt="Architect" src="../../../images/8/implement/15.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/35.png?featherlight=false&width=60pc"></p>
 <ol start="16">
 <li>Làm tương tự với các phương thức còn lại.</li>
 </ol>
@@ -2737,19 +2739,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1715159378"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1715159378"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715159378"></script>
-    <script src="../../../js/jquery.sticky.js?1715159378"></script>
-    <script src="../../../js/featherlight.min.js?1715159378"></script>
-    <script src="../../../js/highlight.pack.js?1715159378"></script>
+    <script src="../../../js/clipboard.min.js?1715160834"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1715160834"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715160834"></script>
+    <script src="../../../js/jquery.sticky.js?1715160834"></script>
+    <script src="../../../js/featherlight.min.js?1715160834"></script>
+    <script src="../../../js/highlight.pack.js?1715160834"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1715159378"></script>
-    <script src="../../../js/learn.js?1715159378"></script>
-    <script src="../../../js/hugo-learn.js?1715159378"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1715160834"></script>
+    <script src="../../../js/learn.js?1715160834"></script>
+    <script src="../../../js/hugo-learn.js?1715160834"></script>
 
-    <link href="../../../mermaid/mermaid.css?1715159378" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1715159378"></script>
+    <link href="../../../mermaid/mermaid.css?1715160834" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1715160834"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
