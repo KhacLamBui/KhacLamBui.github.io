@@ -12,21 +12,21 @@
     <title> Perform Deployment for Testing :: Start with Amazon VPC and AWS VPN Site-to-Site.</title>
 
     
-    <link href="../../css/nucleus.css?1715157347" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1715157347" rel="stylesheet">
-    <link href="../../css/hybrid.css?1715157347" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1715157347" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1715157347" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1715157347" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1715157347" rel="stylesheet">
-    <link href="../../css/theme.css?1715157347" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1715157347" rel="stylesheet">
+    <link href="../../css/nucleus.css?1715159378" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1715159378" rel="stylesheet">
+    <link href="../../css/hybrid.css?1715159378" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1715159378" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1715159378" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1715159378" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1715159378" rel="stylesheet">
+    <link href="../../css/theme.css?1715159378" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1715159378" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1715157347" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1715159378" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1715157347"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1715159378"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1715157347"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1715157347"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1715159378"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1715159378"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1715157347"></script>
+<script type="text/javascript" src="../../js/search.js?1715159378"></script>
 
     
   </div>
@@ -1768,44 +1768,76 @@
 <ol>
 <li>
 <p>In the <strong>productsservice</strong> project, select the <strong>Gradle</strong> icon and choose <strong>jar</strong> to package the project.</p>
-<p><img alt="Architect" src="../../images/8/implement/01.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/21.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Next, create a new image. Open the <strong>DockerFile</strong> and select <strong>Edit dockerfile</strong>.</p>
-<p><img alt="Architect" src="../../images/8/implement/02.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/22.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>In the <strong>Edit Dockerfile</strong> interface, change the image tag to <code>1.1.0</code> to create a new Docker image, then select <strong>Run</strong>.</p>
-<p><img alt="Architect" src="../../images/8/implement/03.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/23.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Push the newly created image to the ECR Repository by opening <strong>AWS Toolkit</strong>, selecting <strong>ECR</strong>, then choosing <strong>productsservice</strong>. Finally, right-click and select <strong>Push to Repository</strong>.</p>
-<p><img alt="Architect" src="../../images/8/implement/04.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/24.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>In the <strong>Push to ECR</strong> popup, select the Local image as <strong>productsservice:1.0.0</strong> and set the <strong>Remote Tag</strong> to <strong>1.1.0</strong>, then click <strong>Push</strong>.</p>
-<p><img alt="Architect" src="../../images/8/implement/05.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/25.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Verify the pushed image on the <strong>ECR</strong> interface.</p>
-<p><img alt="Architect" src="../../images/8/implement/06.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/26.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Open the <strong>FCJ2024_CDK</strong> project. Then open the file <strong>ProductsServiceStack</strong> and update the tag in the <strong>fargateTaskDefinition.addContainer</strong> section to <strong><code>1.1.0</code></strong>.</p>
-<p><img alt="Architect" src="../../images/8/implement/07.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/27.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Next, use <strong><code>cdk deploy --all --require-approval never</code></strong> to deploy the changes.</p>
-<p><img alt="Architect" src="../../images/8/implement/08.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/28.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Check if the new task definition is running by navigating to the <strong>ECS</strong> interface, selecting the <strong>Cluster</strong>, then selecting <strong>ECommerce</strong>, and finally selecting <strong>task</strong>.</p>
-<p><img alt="Architect" src="../../images/8/implement/09.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../images/8/createRepositories/29.png?featherlight=false&width=60pc"></p>
 </li>
 <li>
 <p>Access the DynamoDB interface to verify if the product table has been created.</p>
-<p><img alt="Architect" src="../../images/8/implement/10.png/?featherlight=false&width=60pc"></p>
 </li>
+</ol>
+<p><img alt="Architect" src="../../images/8/createRepositories/30.png?featherlight=false&width=60pc"></p>
+<ol start="11">
+<li>Access the API Gateway interface to verify the created methods.</li>
+</ol>
+<p><img alt="Architect" src="../../images/8/createRepositories/31.png?featherlight=false&width=60pc"></p>
+<ol start="12">
+<li>In the <strong>API Gateway</strong> interface, navigate to <strong>Stages</strong> and copy the <strong>Invoke URL</strong> for testing the API in Postman.</li>
+</ol>
+<p><img alt="Architect" src="../../images/8/createRepositories/32.png?featherlight=false&width=60pc"></p>
+<ol start="13">
+<li>To add a product using the POST method, open Postman and create a POST request with the endpoint <strong><code>Invoke URL/product</code></strong>.</li>
+</ol>
+<p><img alt="Architect" src="../../images/8/createRepositories/33.png?featherlight=false&width=60pc"></p>
+<ol start="14">
+<li>
+<p>Next, pass parameters by selecting <strong>Body</strong> and choosing <strong>raw</strong>. Then enter the data in the following format:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Product1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;code&#34;</span>: <span style="color:#e6db74">&#34;COD1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;Model1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;price&#34;</span>: <span style="color:#ae81ff">10.50</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Press <strong>Send</strong> to submit the request. Similarly, you can add more product data.</p>
+</li>
+</ol>
+<p><img alt="Architect" src="../../images/8/createRepositories/34.png?featherlight=false&width=60pc"></p>
+<ol start="15">
+<li>Next, retrieve all created products using the GET method with the endpoint <strong><code>Invoke URL/product</code></strong>.</li>
+</ol>
+<p><img alt="Architect" src="../../images/8/createRepositories/35.png?featherlight=false&width=60pc"></p>
+<ol start="16">
+<li>Similarly, perform the same steps for the remaining methods.</li>
 </ol>
 
 
@@ -2707,19 +2739,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1715157347"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1715157347"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1715157347"></script>
-    <script src="../../js/jquery.sticky.js?1715157347"></script>
-    <script src="../../js/featherlight.min.js?1715157347"></script>
-    <script src="../../js/highlight.pack.js?1715157347"></script>
+    <script src="../../js/clipboard.min.js?1715159378"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1715159378"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1715159378"></script>
+    <script src="../../js/jquery.sticky.js?1715159378"></script>
+    <script src="../../js/featherlight.min.js?1715159378"></script>
+    <script src="../../js/highlight.pack.js?1715159378"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1715157347"></script>
-    <script src="../../js/learn.js?1715157347"></script>
-    <script src="../../js/hugo-learn.js?1715157347"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1715159378"></script>
+    <script src="../../js/learn.js?1715159378"></script>
+    <script src="../../js/hugo-learn.js?1715159378"></script>
 
-    <link href="../../mermaid/mermaid.css?1715157347" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1715157347"></script>
+    <link href="../../mermaid/mermaid.css?1715159378" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1715159378"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
