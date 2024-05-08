@@ -10,7 +10,10 @@ pre: "<b>8.8</b>"
 
 1. Create a directory named **`dto`** and a new file named **`ProductDto`** within it.
 
-   ![Architect](/images/8/controller/01.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/controller1/01.png/?featherlight=false&width=60pc)
+
+   ![Architect](/images/8/createRepositories/12.png?featherlight=false&width=60pc)
+
 
 2. Define the `ProductDTO` as follows:
 
@@ -37,7 +40,7 @@ public record ProductDto(
     }
 }
 ```
-![Architect](/images/8/controller/02.png/?featherlight=false&width=60pc)
+![Architect](/images/8/controller1/02.png/?featherlight=false&width=60pc)
 
 
 #### Create Controller
