@@ -10,8 +10,6 @@ pre: "<b>8.8</b>"
 
 1. Create a directory named **`dto`** and a new file named **`ProductDto`** within it.
 
-   ![Architect](/images/8/controller1/01.png/?featherlight=false&width=60pc)
-
    ![Architect](/images/8/createRepositories/12.png?featherlight=false&width=60pc)
 
 
@@ -40,7 +38,7 @@ public record ProductDto(
     }
 }
 ```
-![Architect](/images/8/controller1/02.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/13.png?featherlight=false&width=60pc)
 
 
 #### Create Controller
@@ -57,7 +55,7 @@ public record ProductDto(
        this.productsRepository = productsRepository;
    }
 ```
-![Architect](/images/8/controller/03.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/14.png?featherlight=false&width=60pc)
 
 4. Create the **getAllProducts** method. This method is annotated with **@GetMapping**, indicating that it handles HTTP GET requests to the specified path (`/products`). The method includes:
 
@@ -67,7 +65,7 @@ public record ProductDto(
    - For each product retrieved from the repository, it creates a corresponding `ProductDto` and adds it to `productsDto`.
    - Finally, the method returns a `ResponseEntity<List<ProductDto>>` containing the created `productsDto` list with an HTTP status of `HttpStatus.OK`.
 
-   ```java
+```java
    @GetMapping
    public ResponseEntity<List<ProductDto>> getAllProducts() {
        LOG.info("Get all products");
@@ -81,7 +79,7 @@ public record ProductDto(
    }
 
 ```
-![Architect](/images/8/controller/04.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/15.png?featherlight=false&width=60pc)
 
 5. Create the **getProductById** method. This method is annotated with **@GetMapping("{id}")**, indicating that it handles HTTP GET requests to "/products/{id}", where `{id}` is a path variable.
 
@@ -89,7 +87,7 @@ public record ProductDto(
    - If the `product` is not `null`, it returns the `ProductDto` of that product with an HTTP status of `HttpStatus.OK`.
    - If the `product` is `null`, it returns an error message "Product not found" with an HTTP status of `HttpStatus.NOT_FOUND`.
 
-   ```java
+```java
    @GetMapping("{id}")
    public ResponseEntity<?> getProductById(@PathVariable("id") String id) {
        Product product = productsRepository.getById(id).join();
@@ -100,7 +98,7 @@ public record ProductDto(
        }
    }
 ```
-![Architect](/images/8/controller/05.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/16.png?featherlight=false&width=60pc)
 
 6. Create the **createProduct** method. This method is annotated with **@PostMapping**, indicating that it handles HTTP POST requests to "/products".
 
@@ -118,7 +116,7 @@ public record ProductDto(
        return new ResponseEntity<>(new ProductDto(productCreated), HttpStatus.CREATED);
    }
 ```
-![Architect](/images/8/controller/06.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/17.png?featherlight=false&width=60pc)
 
 7. Create the **deleteProductById** method. This method is annotated with **@DeleteMapping("{id}")**, indicating that it handles HTTP DELETE requests to "/products/{id}".
 
@@ -139,7 +137,7 @@ public record ProductDto(
    }
 ```
 
-![Architect](/images/8/controller/07.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/18.png?featherlight=false&width=60pc)
 
 8. Create the **updateProduct** method. This method is annotated with **@PutMapping("{id}")**, indicating that it handles HTTP PUT requests to "/products/{id}".
 
@@ -162,4 +160,5 @@ public record ProductDto(
    }
 
 ```
-![Architect](/images/8/controller/08.png/?featherlight=false&width=60pc)
+
+![Architect](/images/8/createRepositories/19.png?featherlight=false&width=60pc)
