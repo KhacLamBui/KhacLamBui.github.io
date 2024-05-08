@@ -16,13 +16,13 @@ pre: "<b>9.1</b>"
 
    ```
 
-![Architect](/images/9/repare/01.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/41.png?featherlight=false&width=60pc)
 
 #### Preparing Productsservice Spring Boot for AWS X-Ray Usage
 
 2. Inside the **config** directory, create a new file named **XRayConfig.java**.
 
-  ![Architect](/images/9/repare/02.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/42.png?featherlight=false&width=60pc)
 
 3. Add the **@Configuration** annotation to the **XRayConfig** class. This annotation in Spring indicates that this class is used to define beans for the Spring application context. Next, create a logger object to record information related to AWS X-Ray operations in the application.
 
@@ -33,7 +33,7 @@ pre: "<b>9.1</b>"
    }
 ```
 
-![Architect](/images/9/repare/03.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/43.png?featherlight=false&width=60pc)
 
 4. Create a constructor **XRayConfig()** within the **XRayConfig** class. In this constructor, configure AWS X-Ray as follows:
 
@@ -60,7 +60,7 @@ public XRayConfig() {
     }
 ```
 
-![Architect](/images/9/repare/04.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/44.png?featherlight=false&width=60pc)
 
 5. Create the method **Bean TracingFilter**. This method defines a bean of type **Filter** using **AWSXRayServletFilter**.
 
@@ -74,11 +74,11 @@ public XRayConfig() {
 
 ```
 
-![Architect](/images/9/repare/05.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/45.png?featherlight=false&width=60pc)
 
 6. Finally, create an **xray-sampling-rules.json** file as described earlier. Navigate to the **resources** directory, create a new folder named **xray**, and then create a JSON file named **xray-sampling-rules.json**.
 
-   ![Architect](/images/9/repare/06.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/46.png?featherlight=false&width=60pc)
 
 7. Configure the **xray-sampling-rules.json** file as follows:
 
@@ -102,4 +102,4 @@ public XRayConfig() {
   ]
 }
 ```
-![Architect](/images/9/repare/07.png/?featherlight=false&width=60pc)
+![Architect](/images/8/createRepositories/47.png?featherlight=false&width=60pc)

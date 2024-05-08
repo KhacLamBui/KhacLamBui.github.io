@@ -15,11 +15,11 @@ implementation('com.amazonaws:aws-xray-recorder-sdk-spring:2.14.0')
 implementation('com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.14.0')
 ```
 
-![Architect](/images/9/repare/01.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/41.png?featherlight=false&width=60pc)
 
 2. Trong thư mục **config** tạo một file mới tên là **XRayConfig.java**
 
-![Architect](/images/9/repare/02.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/42.png?featherlight=false&width=60pc)
 
 
 3. Thêm Annotation @Configuration là một annotation của Spring, cho biết lớp này sử dụng để định nghĩa các bean cho context của Spring. Tiếp đó, tạo một đối tượng logger được tạo ra để ghi lại các thông tin liên quan đến hoạt động của AWS X-Ray trong ứng dụng.
@@ -31,7 +31,7 @@ public class XRayConfig {
 }
 ```
 
-![Architect](/images/9/repare/03.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/43.png?featherlight=false&width=60pc)
 
 4. Tạo **Constructor XRayConfig()**. Trong constructor này, cấu hình cho AWS X-Ray được thiết lập như sau
 + **ruleFile**: Đọc file cấu hình xray-sampling-rules.json từ resources. File này chứa các quy tắc lấy mẫu cho AWS X-Ray, quy định cách AWS X-Ray nên thu thập dữ liệu.
@@ -58,7 +58,7 @@ public XRayConfig() {
     }
 ```
 
-![Architect](/images/9/repare/04.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/44.png?featherlight=false&width=60pc)
 
 5. Tạo Phương thực **Bean TracingFilter**. Phương thức này định nghĩa một bean kiểu Filter sử dụng AWSXRayServletFilter
 
@@ -71,11 +71,11 @@ public Filter TracingFilter() {
 }
 ```
 
-![Architect](/images/9/repare/05.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/45.png?featherlight=false&width=60pc)
 
 6. Cuối cùng, tạo một **xray-sampling-rules.json** đã khai báo trước đó. Vào thự mục **resource** tạo một thư mục mới tên **xray** và tạo một file json tên là **xray-sampling-rules.json**
 
-![Architect](/images/9/repare/06.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/46.png?featherlight=false&width=60pc)
 
 7. Cấu hình file **xray-sampling-rules.json** như sau
 
@@ -99,4 +99,4 @@ public Filter TracingFilter() {
   ]
 }
 ```
-![Architect](/images/9/repare/07.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/47.png?featherlight=false&width=60pc)

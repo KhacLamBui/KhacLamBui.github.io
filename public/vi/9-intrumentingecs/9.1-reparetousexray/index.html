@@ -12,21 +12,21 @@
     <title>Chuẩn bị Productsservice Spring Boot để sử dụng AWS X-Ray :: Bắt đầu với Amazon VPC và AWS VPN Site to Site</title>
 
     
-    <link href="../../../css/nucleus.css?1715159378" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1715159378" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1715159378" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1715159378" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1715159378" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1715159378" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1715159378" rel="stylesheet">
-    <link href="../../../css/theme.css?1715159378" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1715159378" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1715160834" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1715160834" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1715160834" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1715160834" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1715160834" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1715160834" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1715160834" rel="stylesheet">
+    <link href="../../../css/theme.css?1715160834" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1715160834" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1715159378" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1715160834" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1715159378"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1715160834"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1715159378"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1715159378"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1715160834"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1715160834"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1715159378"></script>
+<script type="text/javascript" src="../../../js/search.js?1715160834"></script>
 
     
   </div>
@@ -1770,19 +1770,21 @@
 </ol>
 <pre tabindex="0"><code>implementation(&#39;com.amazonaws:aws-xray-recorder-sdk-spring:2.14.0&#39;)
 implementation(&#39;com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.14.0&#39;)
-</code></pre><p><img alt="Architect" src="../../../images/9/repare/01.png/?featherlight=false&width=60pc"></p>
+</code></pre><p><img alt="Architect" src="../../../images/8/createRepositories/41.png?featherlight=false&width=60pc"></p>
 <ol start="2">
-<li>Trong thư mục <strong>config</strong> tạo một file mới tên là <strong>XRayConfig.java</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/repare/02.png/?featherlight=false&width=60pc"></p>
-<ol start="3">
-<li>Thêm Annotation @Configuration là một annotation của Spring, cho biết lớp này sử dụng để định nghĩa các bean cho context của Spring. Tiếp đó, tạo một đối tượng logger được tạo ra để ghi lại các thông tin liên quan đến hoạt động của AWS X-Ray trong ứng dụng.</li>
+<li>
+<p>Trong thư mục <strong>config</strong> tạo một file mới tên là <strong>XRayConfig.java</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/42.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Thêm Annotation @Configuration là một annotation của Spring, cho biết lớp này sử dụng để định nghĩa các bean cho context của Spring. Tiếp đó, tạo một đối tượng logger được tạo ra để ghi lại các thông tin liên quan đến hoạt động của AWS X-Ray trong ứng dụng.</p>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">XRayConfig</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger LOG <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(XRayConfig.<span style="color:#a6e22e">class</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/repare/03.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/43.png?featherlight=false&width=60pc"></p>
 <ol start="4">
 <li>Tạo <strong>Constructor XRayConfig()</strong>. Trong constructor này, cấu hình cho AWS X-Ray được thiết lập như sau</li>
 </ol>
@@ -1807,7 +1809,7 @@ implementation(&#39;com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.14.0&#39;)
 </span></span><span style="display:flex;"><span>            LOG.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;XRay config file not found&#34;</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/repare/04.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/44.png?featherlight=false&width=60pc"></p>
 <ol start="5">
 <li>Tạo Phương thực <strong>Bean TracingFilter</strong>. Phương thức này định nghĩa một bean kiểu Filter sử dụng AWSXRayServletFilter</li>
 </ol>
@@ -1818,13 +1820,15 @@ implementation(&#39;com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.14.0&#39;)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> Filter <span style="color:#a6e22e">TracingFilter</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AWSXRayServletFilter(<span style="color:#e6db74">&#34;productsservice&#34;</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/repare/05.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/45.png?featherlight=false&width=60pc"></p>
 <ol start="6">
-<li>Cuối cùng, tạo một <strong>xray-sampling-rules.json</strong> đã khai báo trước đó. Vào thự mục <strong>resource</strong> tạo một thư mục mới tên <strong>xray</strong> và tạo một file json tên là <strong>xray-sampling-rules.json</strong></li>
-</ol>
-<p><img alt="Architect" src="../../../images/9/repare/06.png/?featherlight=false&width=60pc"></p>
-<ol start="7">
-<li>Cấu hình file <strong>xray-sampling-rules.json</strong> như sau</li>
+<li>
+<p>Cuối cùng, tạo một <strong>xray-sampling-rules.json</strong> đã khai báo trước đó. Vào thự mục <strong>resource</strong> tạo một thư mục mới tên <strong>xray</strong> và tạo một file json tên là <strong>xray-sampling-rules.json</strong></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/46.png?featherlight=false&width=60pc"></p>
+</li>
+<li>
+<p>Cấu hình file <strong>xray-sampling-rules.json</strong> như sau</p>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;version&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
@@ -1844,7 +1848,7 @@ implementation(&#39;com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.14.0&#39;)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  ]
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/9/repare/07.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/47.png?featherlight=false&width=60pc"></p>
 
 
 
@@ -2742,19 +2746,19 @@ implementation(&#39;com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2:2.14.0&#39;)
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1715159378"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1715159378"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715159378"></script>
-    <script src="../../../js/jquery.sticky.js?1715159378"></script>
-    <script src="../../../js/featherlight.min.js?1715159378"></script>
-    <script src="../../../js/highlight.pack.js?1715159378"></script>
+    <script src="../../../js/clipboard.min.js?1715160834"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1715160834"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715160834"></script>
+    <script src="../../../js/jquery.sticky.js?1715160834"></script>
+    <script src="../../../js/featherlight.min.js?1715160834"></script>
+    <script src="../../../js/highlight.pack.js?1715160834"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1715159378"></script>
-    <script src="../../../js/learn.js?1715159378"></script>
-    <script src="../../../js/hugo-learn.js?1715159378"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1715160834"></script>
+    <script src="../../../js/learn.js?1715160834"></script>
+    <script src="../../../js/hugo-learn.js?1715160834"></script>
 
-    <link href="../../../mermaid/mermaid.css?1715159378" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1715159378"></script>
+    <link href="../../../mermaid/mermaid.css?1715160834" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1715160834"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
