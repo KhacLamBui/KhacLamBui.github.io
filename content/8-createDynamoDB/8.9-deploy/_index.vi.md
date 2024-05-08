@@ -48,19 +48,19 @@ pre : " <b> 8.9 </b> "
 
 ![Architect](/images/8/implement/10.png/?featherlight=false&width=60pc)
 
-11. Access the API Gateway interface to verify the created methods.
+11. Truy cập giao diện API Gateway để xác minh các phương thức đã tạo.
 
     ![Architect](/images/8/implement/11.png/?featherlight=false&width=60pc)
 
-12. In the **API Gateway** interface, navigate to **Stages** and copy the **Invoke URL** for testing the API in Postman.
+12. Trong giao diện **API Gateway**, hãy điều hướng đến **Giai đoạn** và sao chép **Gọi URL** để kiểm tra API trong Postman.
 
     ![Architect](/images/8/implement/12.png/?featherlight=false&width=60pc)
 
-13. To add a product using the POST method, open Postman and create a POST request with the endpoint **`Invoke URL/product`**.
+13. Để thêm sản phẩm bằng phương thức POST, hãy mở Postman và tạo yêu cầu POST với điểm cuối **`Gọi URL/sản phẩm`**.
 
     ![Architect](/images/8/implement/13.png/?featherlight=false&width=60pc)
 
-14. Next, pass parameters by selecting **Body** and choosing **raw**. Then enter the data in the following format:
+14. Tiếp theo, truyền tham số bằng cách chọn **Body** và chọn **raw**. Sau đó nhập dữ liệu theo mẫu sau:
 
     ```json
     {
@@ -83,10 +83,4 @@ pre : " <b> 8.9 </b> "
 ![Architect](/images/8/implement/15.png/?featherlight=false&width=60pc)
 
 16. Làm tương tự với các phương thức còn lại.
-
-15. Next, retrieve all created products using the GET method with the endpoint **`Invoke URL/product`**.
-
-    ![Architect](/images/8/implement/15.png/?featherlight=false&width=60pc)
-
-16. Similarly, perform the same steps for the remaining methods.
 
