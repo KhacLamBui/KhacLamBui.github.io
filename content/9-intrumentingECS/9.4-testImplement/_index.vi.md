@@ -57,4 +57,3 @@ cdk deploy --all --require-approval never
 
    ![Architect](/images/8/createRepositories/81.png?featherlight=false&width=60pc)
 
-12. Mở Postman tạo phương thức Post để tạo một product mới
