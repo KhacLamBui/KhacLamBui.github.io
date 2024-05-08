@@ -308,7 +308,7 @@
 	"content": "Trong phần này chúng ta sẽ tạo API Gateway bằng CDK "
 },
 {
-	"uri": "/vi/8-createdynamodb/8.7-createcontroller/",
+	"uri": "/vi/8-createdynamodb/8.7-createrepository/",
 	"title": "Tạo product repository",
 	"tags": [],
 	"description": "",

@@ -530,16 +530,16 @@
                 href="/7-createapigateway/"
                 />
   </url><url>
-    <loc>/8-createdynamodb/8.7-createcontroller/</loc>
+    <loc>/8-createdynamodb/8.7-createrepository/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/8-createdynamodb/8.7-createcontroller/"
+                href="/vi/8-createdynamodb/8.7-createrepository/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/8-createdynamodb/8.7-createcontroller/"
+                href="/8-createdynamodb/8.7-createrepository/"
                 />
   </url><url>
     <loc>/6-createservice/6.8-confignlb/</loc>
@@ -613,8 +613,6 @@
                 hreflang="en"
                 href="/9-intrumentingecs/"
                 />
-  </url><url>
-    <loc>/8-createdynamodb/8.10/</loc>
   </url><url>
     <loc>/10-cleanresource/</loc>
     <xhtml:link

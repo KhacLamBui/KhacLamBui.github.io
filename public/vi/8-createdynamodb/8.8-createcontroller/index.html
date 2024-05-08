@@ -12,21 +12,21 @@
     <title>Tạo controller :: Bắt đầu với Amazon VPC và AWS VPN Site to Site</title>
 
     
-    <link href="../../../css/nucleus.css?1715155685" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1715155685" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1715155685" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1715155685" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1715155685" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1715155685" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1715155685" rel="stylesheet">
-    <link href="../../../css/theme.css?1715155685" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1715155685" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1715157348" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1715157348" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1715157348" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1715157348" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1715157348" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1715157348" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1715157348" rel="stylesheet">
+    <link href="../../../css/theme.css?1715157348" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1715157348" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1715155685" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1715157348" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1715155685"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1715157348"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1715155685"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1715155685"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1715157348"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1715157348"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1715155685"></script>
+<script type="text/javascript" src="../../../js/search.js?1715157348"></script>
 
     
   </div>
@@ -1319,12 +1319,12 @@
  
   
     
-    <li data-nav-id="/vi/8-createdynamodb/8.7-createcontroller/" title="Tạo product repository" class="dd-item 
+    <li data-nav-id="/vi/8-createdynamodb/8.7-createrepository/" title="Tạo product repository" class="dd-item 
         
         
         
         ">
-      <a href="../../../vi/8-createdynamodb/8.7-createcontroller/">
+      <a href="../../../vi/8-createdynamodb/8.7-createrepository/">
            <b> 8.7 </b> Tạo product repository
           
             <i class="fas fa-check read-icon"></i>
@@ -1768,7 +1768,7 @@
 <ol>
 <li>Tạo một thư mục tên <strong>dto</strong> và một file mới có tên là <strong>ProductDto</strong></li>
 </ol>
-<p><img alt="Architect" src="../../../images/8/controller/01.png/?featherlight=false&width=60pc"></p>
+<p><img alt="Architect" src="../../../images/8/createRepositories/12.png?featherlight=false&width=60pc"></p>
 <ol start="2">
 <li>Tạo ProductDTO như sau</li>
 </ol>
@@ -1793,7 +1793,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> product;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/02.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/13.png?featherlight=false&width=60pc"></p>
 <h4 id="tạo-controller">Tạo controller</h4>
 <ol start="3">
 <li>Trong class ProductsController khởi tạo productsRepository</li>
@@ -1808,7 +1808,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ProductsController</span>(ProductsRepository productsRepository) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">productsRepository</span> <span style="color:#f92672">=</span> productsRepository;
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/03.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/14.png?featherlight=false&width=60pc"></p>
 <ol start="4">
 <li>Tạo phương thức <strong>getAllProducts</strong> .Phương thức này được đánh dấu bởi @GetMapping, chỉ xử lý các HTTP GET request tới đường dẫn được chỉ định (/products). Phương thức này bao gồm
 <ul>
@@ -1831,7 +1831,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResponseEntity<span style="color:#f92672">&lt;&gt;</span>(productsDto, HttpStatus.<span style="color:#a6e22e">OK</span>);
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/04.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/15.png?featherlight=false&width=60pc"></p>
 <ol start="5">
 <li>Tạo phương thức <strong>getProductById</strong> Phương thức này được đánh dấu bởi <strong>@GetMapping(&quot;{id}&quot;)</strong>, có nghĩa là nó sẽ xử lý các HTTP GET request tới &ldquo;/products/{id}&rdquo;, trong đó {id} là một path variable</li>
 </ol>
@@ -1849,7 +1849,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResponseEntity<span style="color:#f92672">&lt;&gt;</span>( <span style="color:#e6db74">&#34;Product not found&#34;</span>, HttpStatus.<span style="color:#a6e22e">NOT_FOUND</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/05.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/16.png?featherlight=false&width=60pc"></p>
 <ol start="6">
 <li>Tạo phương thức <strong>createProduct</strong>. Phương thức này được đánh dấu bởi <strong>@PostMapping</strong>, xử lý các HTTP POST request tới &ldquo;/products&rdquo;.</li>
 </ol>
@@ -1866,7 +1866,7 @@
 </span></span><span style="display:flex;"><span>        LOG.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;Product created - ID: {}&#34;</span>, productCreated.<span style="color:#a6e22e">getId</span>());
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResponseEntity<span style="color:#f92672">&lt;&gt;</span>(<span style="color:#66d9ef">new</span> ProductDto(productCreated), HttpStatus.<span style="color:#a6e22e">CREATED</span>);
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/06.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/17.png?featherlight=false&width=60pc"></p>
 <ol start="7">
 <li>Tạo phương thức <strong>deleteProductById</strong>. Phương thức này được đánh dấu bởi @DeleteMapping(&quot;{id}&quot;), xử lý các HTTP DELETE request tới &ldquo;/products/{id}&rdquo;
 <ul>
@@ -1886,7 +1886,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResponseEntity<span style="color:#f92672">&lt;&gt;</span>(<span style="color:#e6db74">&#34;Product not found&#34;</span>, HttpStatus.<span style="color:#a6e22e">NOT_FOUND</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/07.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/18.png?featherlight=false&width=60pc"></p>
 <ol start="8">
 <li>Tạo phương thức <strong>updateProduct</strong>. Phương thức này được đánh dấu bởi <strong>@PutMapping(&quot;{id}&quot;)</strong>, xử lý các HTTP PUT request tới &ldquo;/products/{id}&rdquo;.
 <ul>
@@ -1908,7 +1908,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResponseEntity<span style="color:#f92672">&lt;&gt;</span>(<span style="color:#e6db74">&#34;Product not found&#34;</span>, HttpStatus.<span style="color:#a6e22e">NOT_FOUND</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/controller/08.png/?featherlight=false&width=60pc"></p>
+</span></span></code></pre></div><p><img alt="Architect" src="../../../images/8/createRepositories/19.png?featherlight=false&width=60pc"></p>
 
 
 
@@ -2796,7 +2796,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../vi/8-createdynamodb/8.7-createcontroller/" title="Tạo product repository"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../vi/8-createdynamodb/8.7-createrepository/" title="Tạo product repository"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="../../../vi/8-createdynamodb/8.9-deploy/" title=" Thực hiện deploy để kiểm thử" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -2809,19 +2809,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1715155685"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1715155685"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715155685"></script>
-    <script src="../../../js/jquery.sticky.js?1715155685"></script>
-    <script src="../../../js/featherlight.min.js?1715155685"></script>
-    <script src="../../../js/highlight.pack.js?1715155685"></script>
+    <script src="../../../js/clipboard.min.js?1715157348"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1715157348"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1715157348"></script>
+    <script src="../../../js/jquery.sticky.js?1715157348"></script>
+    <script src="../../../js/featherlight.min.js?1715157348"></script>
+    <script src="../../../js/highlight.pack.js?1715157348"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1715155685"></script>
-    <script src="../../../js/learn.js?1715155685"></script>
-    <script src="../../../js/hugo-learn.js?1715155685"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1715157348"></script>
+    <script src="../../../js/learn.js?1715157348"></script>
+    <script src="../../../js/hugo-learn.js?1715157348"></script>
 
-    <link href="../../../mermaid/mermaid.css?1715155685" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1715155685"></script>
+    <link href="../../../mermaid/mermaid.css?1715157348" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1715157348"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
