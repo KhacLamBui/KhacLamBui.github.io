@@ -9,7 +9,7 @@ pre : " <b> 8.8 </b> "
 #### Tạo productDTO
 1. Tạo một thư mục tên **dto** và một file mới có tên là **ProductDto**
 
-![Architect](/images/8/controller/01.png/?featherlight=false&width=60pc)
+![Architect](/images/8/createRepositories/12.png?featherlight=false&width=60pc)
 
 2. Tạo ProductDTO như sau
 
@@ -36,7 +36,7 @@ public record ProductDto(
     }
 }
 ```
-![Architect](/images/8/controller/02.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/13.png?featherlight=false&width=60pc)
 
 
 #### Tạo controller
@@ -53,7 +53,7 @@ private final ProductsRepository productsRepository;
         this.productsRepository = productsRepository;
     }
 ```
-![Architect](/images/8/controller/03.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/14.png?featherlight=false&width=60pc)
 
 4. Tạo phương thức **getAllProducts** .Phương thức này được đánh dấu bởi @GetMapping, chỉ xử lý các HTTP GET request tới đường dẫn được chỉ định (/products). Phương thức này bao gồm
    + Ghi log thông tin "Get all products".
@@ -75,7 +75,7 @@ private final ProductsRepository productsRepository;
         return new ResponseEntity<>(productsDto, HttpStatus.OK);
     }
 ```
-![Architect](/images/8/controller/04.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/15.png?featherlight=false&width=60pc)
 
 5. Tạo phương thức **getProductById** Phương thức này được đánh dấu bởi **@GetMapping("{id}")**, có nghĩa là nó sẽ xử lý các HTTP GET request tới "/products/{id}", trong đó {id} là một path variable
 + Phương thức này lấy id từ đường dẫn và sử dụng **productsRepository.getById(id).join()** để đợi và lấy ra Product từ repository
@@ -93,7 +93,7 @@ private final ProductsRepository productsRepository;
         }
     }
 ```
-![Architect](/images/8/controller/05.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/16.png?featherlight=false&width=60pc)
 
 6. Tạo phương thức **createProduct**. Phương thức này được đánh dấu bởi **@PostMapping**, xử lý các HTTP POST request tới "/products".
 + Phương thức này tạo một Product từ ProductDto được gửi lên (productDto), gán một id mới bằng UUID, sau đó lưu **productCreated** vào **productsRepository** bằng **productsRepository.create(productCreated).join()**.
@@ -110,7 +110,7 @@ private final ProductsRepository productsRepository;
         return new ResponseEntity<>(new ProductDto(productCreated), HttpStatus.CREATED);
     }
 ```
-![Architect](/images/8/controller/06.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/17.png?featherlight=false&width=60pc)
 
 7. Tạo phương thức **deleteProductById**. Phương thức này được đánh dấu bởi @DeleteMapping("{id}"), xử lý các HTTP DELETE request tới "/products/{id}"
    + Phương thức này sử dụng **productsRepository.deleteById(id).join()** để xóa sản phẩm từ repository.
@@ -130,7 +130,7 @@ private final ProductsRepository productsRepository;
     }
 ```
 
-![Architect](/images/8/controller/07.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/18.png?featherlight=false&width=60pc)
 
 8. Tạo phương thức **updateProduct**. Phương thức này được đánh dấu bởi **@PutMapping("{id}")**, xử lý các HTTP PUT request tới "/products/{id}".
    + Phương thức này cập nhật thông tin của một sản phẩm dựa trên id được chỉ định. Nó sử dụng **productsRepository.update(...).join()** để cập nhật sản phẩm trong repository
@@ -152,4 +152,4 @@ private final ProductsRepository productsRepository;
     }
 ```
 
-![Architect](/images/8/controller/08.png/?featherlight=false&width=60pc)
+   ![Architect](/images/8/createRepositories/19.png?featherlight=false&width=60pc)
